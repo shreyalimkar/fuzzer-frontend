@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuzzing Website</title>
+    <style>
+      /* General styling */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+      }
+
+      /* Header container */
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: #000;
+        border-bottom: 2px solid #b9ac5d;
+      }
+
+      /* Logo styling */
+      .logo {
+        width: 150px;
+        margin-right: 10px;
+      }
+
+      /* Navigation bar styling */
+      .navbar {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+      }
+
+      .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-grow: 1;
+      }
+
+      .navbar ul li {
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+        border: 2px solid transparent;
+      }
+
+      .navbar ul li a:hover {
+        border: 2px solid #b9ac5d; /* Closing brace was missing */
+      }
+
+      /* Authentication buttons */
+      .auth-buttons {
+        display: flex;
+        align-items: center;
+      }
+
+      .auth-buttons a {
+        padding: 8px 15px;
+        margin-left: 15px;
+        border: 2px solid #b9ac5d;
+        border-radius: 5px;
+        background: transparent;
+        text-decoration: none;
+        color: #fff;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .auth-buttons a:first-child {
+        margin-left: 10px;
+      }
+
+      .auth-buttons a:hover {
+        background: #b9ac5d;
+        color: #000;
+      }
+
+      .content {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .content h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #b9ac5d;
+      }
+
+      .content h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #b9ac5d;
+      }
+
+      .content p {
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 0 auto;
+        width: 70%;
+        color: #fff;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        border-top: 2px solid #ffd700;
+        margin-top: 50px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img
+        src="file:///C:/Users/limka/Desktop/Fuzzer/121.jpg"
+        alt="Logo"
+        class="logo"
+      />
+      <!-- Navigation bar -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+        <div class="auth-buttons">
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h1>Welcome to Your Fuzzing Website</h1>
+      <h2>Trouble29</h2>
+      <p>
+        A fuzzer is a software tool used to identify vulnerabilities, bugs, or
+        unexpected behavior in applications by generating and inputting random
+        or malformed data. It helps developers enhance software security and
+        stability by uncovering flaws during the development process.
+      </p>
+    </div>
+  </body>
+</html>
