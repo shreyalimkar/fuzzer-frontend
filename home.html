@@ -58,7 +58,7 @@
       }
 
       .navbar ul li a:hover {
-        border: 2px solid #b9ac5d; /* Closing brace was missing */
+        border: 2px solid #b9ac5d;
       }
 
       /* Authentication buttons */
@@ -131,7 +131,8 @@
       <!-- Navigation bar -->
       <nav class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <!-- Ensure the "Home" link uses index.html -->
+          <li><a href="index.html" id="home-link">Home</a></li>
           <li><a href="features.html">Features</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="education.html">Education</a></li>
@@ -155,5 +156,11 @@
         stability by uncovering flaws during the development process.
       </p>
     </div>
+
+    <footer>
+      <p>© 2024 ToolEka. All rights reserved.</p>
+    </footer>
+
+  
   </body>
 </html>

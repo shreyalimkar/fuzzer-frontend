@@ -1,227 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-  />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+      }
 
-    /* Header container */
-    .header {
-      display: flex;
-      align-items: center;
-      background-color: #000; 
-      border-bottom: 2px solid #b9ac5d; 
-      width: 100%;
-    }
+      /* Header container */
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: #000;
+        border-bottom: 2px solid #b9ac5d;
+        width: 100%;
+      }
 
-    /* Logo styling */
-    .logo {
-      width: 150px;
-      margin-right: 10px;
-    }
+      /* Logo styling */
+      .logo {
+        width: 150px;
+        margin-right: 10px;
+      }
 
-    /* Navigation bar styling */
-    .navbar {
-      display: flex;
-      flex-grow: 1; 
-      align-items: center;
-    }
+      /* Navigation bar styling */
+      .navbar {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+      }
 
-    .navbar ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-grow: 1; 
-    }
+      .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-grow: 1;
+      }
 
-    .navbar ul li {
-      flex-grow: 1; 
-      text-align: center; 
-    }
+      .navbar ul li {
+        flex-grow: 1;
+        text-align: center;
+      }
 
-    .navbar ul li a {
-      color: #fff;
-      text-decoration: none;
-      padding: 15px;
-      display: block;
-      border: 2px solid transparent;
-    }
+      .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+        border: 2px solid transparent;
+      }
 
-    .navbar ul li a:hover {
-      border: 2px solid #b9ac5d; 
-    }
+      .navbar ul li a:hover {
+        border: 2px solid #b9ac5d;
+      }
 
-    /* Authentication buttons */
-    .auth-buttons {
-      display: flex;
-      align-items: center;
-    }
+      /* Authentication buttons */
+      .auth-buttons {
+        display: flex;
+        align-items: center;
+      }
 
-    .auth-buttons a {
-      padding: 8px 15px;
-      margin-left: 15px; 
-      border: 2px solid #b9ac5d;
-      border-radius: 5px;
-      background: transparent;
-      text-decoration: none;
-      color: #fff;
-      transition: background 0.3s, color 0.3s;
-    }
+      .auth-buttons a {
+        padding: 8px 15px;
+        margin-left: 15px;
+        border: 2px solid #b9ac5d;
+        border-radius: 5px;
+        background: transparent;
+        text-decoration: none;
+        color: #fff;
+        transition: background 0.3s, color 0.3s;
+      }
 
-    .auth-buttons a:first-child {
-      margin-left: 10px; 
-    }
+      .auth-buttons a:first-child {
+        margin-left: 10px;
+      }
 
-    .auth-buttons a:hover {
-      background:#b9ac5d;
-      color: #000; 
-    }
+      .auth-buttons a:hover {
+        background: #b9ac5d;
+        color: #000;
+      }
 
-    /* Main container styling */
-    .login-container {
-      display: flex;
-      background: #000;
-      border: 2px solid #d4af37;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.8);
-      overflow: hidden;
-      width: 700px; 
-      max-width: 90%;
-      margin-top: 50px; 
-    }
+      /* Main container styling */
+      .login-container {
+        display: flex;
+        background: #000;
+        border: 2px solid #d4af37;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.8);
+        overflow: hidden;
+        width: 700px;
+        max-width: 90%;
+        margin-top: 50px;
+      }
 
-    /* Left section styling */
-    .login-form {
-      flex: 1;
-      padding: 50px; 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+      /* Left section styling */
+      .login-form {
+        flex: 1;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .login-form h3 {
-      font-size: 28px; 
-      margin-bottom: 30px;
-      color: #fff;
-    }
+      .login-form h3 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: #fff;
+      }
 
-    .login-form input {
-      width: 95%;
-      padding: 15px; 
-      margin: 15px 0;
-      border: 2px solid #d4af37;
-      border-radius: 5px;
-      background: #333;
-      color: #fff;
-      font-size: 16px; 
-    }
+      .login-form input {
+        width: 95%;
+        padding: 15px;
+        margin: 15px 0;
+        border: 2px solid #d4af37;
+        border-radius: 5px;
+        background: #333;
+        color: #fff;
+        font-size: 16px;
+      }
 
-    .login-form .btn {
-      width: 95%; 
-      padding: 15px; 
-      background: #d4af37;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      font-size: 18px; 
-      cursor: pointer;
-      transition: 0.3s;
-    }
+      .login-form .btn {
+        width: 95%;
+        padding: 15px;
+        background: #d4af37;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
 
-    .login-form .btn:hover {
-      background: #b8962e;
-    }
+      .login-form .btn:hover {
+        background: #b8962e;
+      }
 
-    .login-form p {
-      color: #fff;
-    }
+      .login-form p {
+        color: #fff;
+      }
 
-    .login-form a {
-      color: #d4af37;
-      text-decoration: none;
-    }
+      .login-form a {
+        color: #d4af37;
+        text-decoration: none;
+      }
 
-    .login-form a:hover {
-      text-decoration: underline;
-    }
+      .login-form a:hover {
+        text-decoration: underline;
+      }
 
-    /* Right section styling */
-    .welcome-section {
-      flex: 1;
-      background: linear-gradient(to bottom right, #000, #222);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      padding: 50px; 
-      text-align: center;
-    }
+      /* Right section styling */
+      .welcome-section {
+        flex: 1;
+        background: linear-gradient(to bottom right, #000, #222);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        padding: 50px;
+        text-align: center;
+      }
 
-    .welcome-section h2 {
-      font-size: 30px; 
-      margin-bottom: 20px;
-      color: #d4af37;
-    }
+      .welcome-section h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: #d4af37;
+      }
 
-    .welcome-section p {
-      font-size: 18px; 
-      line-height: 1.6;
-      margin: 0;
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <img src="C:/Users/limka/Desktop/Fuzzer/121.jpg" alt="Logo" class="logo" />
-    <nav class="navbar">
-      <ul>
-        <li><a href="home.html">Home</a></li> 
-        <li><a href="features.html">Features</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
-      <div class="auth-buttons">
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
+      .welcome-section p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Footer styling */
+      footer {
+        background-color: #000;  /* Set background color to black */
+        color: #fff;          /* Text color remains gold */
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img src="C:/Users/limka/Desktop/Fuzzer/121.jpg" alt="Logo" class="logo" />
+      <nav class="navbar">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+        <div class="auth-buttons">
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="login-container">
+      <!-- Left section: Login Form -->
+      <div class="login-form">
+        <h3>Login</h3>
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <button class="btn">Login</button>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
       </div>
-    </nav>
-  </header>
 
-  <div class="login-container">
-    <!-- Left section: Login Form -->
-    <div class="login-form">
-      <h3>Login</h3>
-      <input type="text" placeholder="Username" required />
-      <input type="password" placeholder="Password" required />
-      <button class="btn">Login</button>
-      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+      <!-- Right section: Welcome Text -->
+      <div class="welcome-section">
+        <h2>WELCOME BACK!</h2>
+        <p>abcd</p>
+      </div>
     </div>
 
-    <!-- Right section: Welcome Text -->
-    <div class="welcome-section">
-      <h2>WELCOME BACK!</h2>
-      <p>abcd</p>
-    </div>
-  </div>
-</body>
+    <!-- Footer -->
+    <footer>
+      <p>© 2024 ToolEka. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
+
