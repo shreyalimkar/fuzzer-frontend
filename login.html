@@ -9,11 +9,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
     <style>
+      /* Body Styling */
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #000;
+        background: linear-gradient(to bottom right, #000, #333);
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -62,10 +63,12 @@
         padding: 15px;
         display: block;
         border: 2px solid transparent;
+        transition: background 0.3s, color 0.3s;
       }
 
       .navbar ul li a:hover {
-        border: 2px solid #b9ac5d;
+        background: #b9ac5d;
+        border-color: #d4af37;
       }
 
       /* Authentication buttons */
@@ -99,8 +102,8 @@
         display: flex;
         background: #000;
         border: 2px solid #d4af37;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.8);
+        border-radius: 20px;
+        box-shadow: 0 4px 25px rgba(212, 175, 55, 0.8);
         overflow: hidden;
         width: 700px;
         max-width: 90%;
@@ -123,15 +126,47 @@
         color: #fff;
       }
 
+      /* Styling for input fields */
       .login-form input {
         width: 95%;
         padding: 15px;
         margin: 15px 0;
         border: 2px solid #d4af37;
-        border-radius: 5px;
+        border-radius: 10px;
         background: #333;
         color: #fff;
         font-size: 16px;
+        transition: border 0.3s, box-shadow 0.3s;
+        padding-left: 40px; /* Add space for the icon */
+      }
+
+      .login-form input:focus {
+        border-color: #b9ac5d;
+        box-shadow: 0 0 8px rgba(185, 172, 93, 0.7);
+        outline: none;
+      }
+
+      /* Icon styling */
+      .login-form input::before {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #d4af37;
+      }
+
+      .login-form input[type="text"]::before {
+        content: "\f007"; /* User icon (FontAwesome fa-user) */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+      }
+
+      .login-form input[type="password"]::before {
+        content: "\f023"; /* Lock icon (FontAwesome fa-lock) */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
       }
 
       .login-form .btn {
@@ -140,10 +175,10 @@
         background: #d4af37;
         color: #000;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         font-size: 18px;
         cursor: pointer;
-        transition: 0.3s;
+        transition: background 0.3s;
       }
 
       .login-form .btn:hover {
@@ -190,7 +225,7 @@
 
       /* Footer styling */
       footer {
-        background-color: #000;  
+        background-color: transparent;  
         color: #fff;        
         width: 100%;
         text-align: center;
@@ -198,6 +233,35 @@
         position: absolute;
         bottom: 0;
         left: 0;
+      }
+
+      /* Loading Spinner */
+      .spinner {
+        display: none;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #d4af37;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        .login-container {
+          flex-direction: column;
+        }
+
+        .login-form,
+        .welcome-section {
+          padding: 20px;
+        }
       }
     </style>
   </head>
@@ -225,7 +289,8 @@
         <h3>Login</h3>
         <input type="text" placeholder="Username" required />
         <input type="password" placeholder="Password" required />
-        <button class="btn">Login</button>
+        <button class="btn" onclick="submitForm()">Login</button>
+        <div class="spinner" id="spinner"></div>
         <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
       </div>
 
@@ -240,6 +305,15 @@
     <footer>
       <p>© 2024 ToolEka. All rights reserved.</p>
     </footer>
+
+    <script>
+      function submitForm() {
+        document.getElementById("spinner").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("spinner").style.display = "none";
+          alert("Form submitted!");
+        }, 2000);
+      }
+    </script>
   </body>
 </html>
-

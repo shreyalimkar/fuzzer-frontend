@@ -16,7 +16,7 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #000;
+        background: linear-gradient(to right, #000, #333);
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -65,10 +65,13 @@
         padding: 15px;
         display: block;
         border: 2px solid transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
       .navbar ul li a:hover {
         border: 2px solid #b9ac5d;
+        background-color: #d4af37;
+        color: #000;
       }
 
       /* Authentication buttons */
@@ -101,7 +104,7 @@
       .form-container {
         background: #000;
         border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.8);
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
         width: 400px;
         padding: 20px;
         text-align: center;
@@ -120,10 +123,17 @@
         padding: 8px;
         margin: 10px auto;
         border: 2px solid #b9ac5d;
-        border-radius: 4px;
+        border-radius: 25px;
         background-color: #333;
         color: #fff;
         font-size: 14px;
+        transition: border-color 0.3s, background-color 0.3s;
+      }
+
+      .form-container .box:focus {
+        border-color: #d4af37;
+        background-color: #444;
+        outline: none;
       }
 
       .form-container .btn {
@@ -133,7 +143,7 @@
         background: #d4af37;
         color: #000;
         border: none;
-        border-radius: 4px;
+        border-radius: 25px;
         font-size: 16px;
         cursor: pointer;
         transition: 0.3s;
@@ -141,6 +151,7 @@
 
       .form-container .btn:hover {
         background: #b8962e;
+        transform: scale(1.05);
       }
 
       .form-container p {
@@ -160,13 +171,34 @@
       /* Footer Styling */
       footer {
         width: 100%;
-        background-color: #000;
         color: #fff;
         text-align: center;
         padding: 20px;
         position: fixed;
         bottom: 0;
         left: 0;
+        background-color: transparent;
+      }
+
+      /* Media Queries for Responsive Design */
+      @media (max-width: 600px) {
+        .form-container {
+          width: 90%;
+          padding: 15px;
+        }
+
+        .navbar ul {
+          flex-direction: column;
+        }
+
+        .navbar ul li {
+          width: 100%;
+        }
+
+        .auth-buttons {
+          flex-direction: column;
+          margin-left: 0;
+        }
       }
     </style>
   </head>
@@ -196,43 +228,55 @@
         <h3>Create Account</h3>
         <div class="error" id="error-message"></div>
         <p>Your Name <span>*</span></p>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-          required
-          maxlength="50"
-          class="box"
-        />
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+            maxlength="50"
+            class="box"
+          />
+        </div>
         <p>Your Email <span>*</span></p>
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-          maxlength="50"
-          class="box"
-        />
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+            maxlength="50"
+            class="box"
+          />
+        </div>
         <p>Create Password <span>*</span></p>
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter a password"
-          required
-          minlength="6"
-          maxlength="20"
-          class="box"
-        />
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter a password"
+            required
+            minlength="6"
+            maxlength="20"
+            class="box"
+          />
+        </div>
         <p>Confirm Password <span>*</span></p>
-        <input
-          type="password"
-          name="confirm_password"
-          placeholder="Confirm your password"
-          required
-          minlength="6"
-          maxlength="20"
-          class="box"
-        />
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            name="confirm_password"
+            placeholder="Confirm your password"
+            required
+            minlength="6"
+            maxlength="20"
+            class="box"
+          />
+        </div>
         <input type="submit" value="Sign Up" class="btn" />
         <p>
           Already have an account? <a href="login.html">Login</a>
